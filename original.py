@@ -10,7 +10,7 @@ server_socket.listen()
 while True:
     print('Before .accept()')
     client_socket, addr = server_socket.accept()
-    print('Connection from ', addr)
+    print('Connection from ', addr, 'client_socket', client_socket)
 
     while True:
         print ('Before .recv()')
