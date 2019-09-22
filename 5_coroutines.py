@@ -26,10 +26,13 @@ def average():
             x = yield average
         except StopIteration:
             print('Done')
+            break
         except BlaBlaException:
             print('..................................')
+            break
         else:
             count += 1
             sum += x
             average = round(sum/count, 2)
+    return average
 
