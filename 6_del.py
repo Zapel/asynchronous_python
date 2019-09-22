@@ -14,8 +14,8 @@ def subgen():
     while True:
         try:
             message = yield
-        except:
-            pass
+        except BlaBlaException:
+            print('Ku-ku!!!')
         else:
             print('.........', message)
 
@@ -25,6 +25,6 @@ def delegator(g):
         try:
             data = yield
             g.send(data)
-        except:
-            pass
+        except BlaBlaException as e:
+            g.throw(e)
 
