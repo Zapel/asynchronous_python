@@ -1,29 +1,26 @@
 import asyncio
-from time import time
 
-@asyncio.coroutine
-def print_nums():
+async def print_nums():
     num = 1
     while True:
         print(num)
         num += 1
-        yield from asyncio.sleep(1)
+        await asyncio.sleep(1)
 
-@asyncio.coroutine
-def print_time():
+async def print_time():
     count = 0
     while True:
         if count % 3 == 0:
             print("{} seconds have passed".format(count))
         count += 1
-        yield from asyncio.sleep(1)
+        await asyncio.sleep(1)
 
-@asyncio.coroutine
-def main():
+
+async def main():
     task1 = asyncio.ensure_future(print_nums())
     task2 = asyncio.ensure_future(print_time())
 
-    yield from asyncio.gather(task1, task2)
+    await asyncio.gather(task1, task2)
 
 
 
