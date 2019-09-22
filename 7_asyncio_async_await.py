@@ -17,8 +17,8 @@ async def print_time():
 
 
 async def main():
-    task1 = asyncio.ensure_future(print_nums())
-    task2 = asyncio.ensure_future(print_time())
+    task1 = asyncio.create_task(print_nums())
+    task2 = asyncio.create_task(print_time())
 
     await asyncio.gather(task1, task2)
 
@@ -28,3 +28,4 @@ if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
     loop.close()
+    # asyncio.run(main())
