@@ -9,22 +9,26 @@ def coroutine(func):
 class BlaBlaException(Exception):
     pass
 
-@coroutine
+# @coroutine
 def subgen():
     while True:
         try:
             message = yield
-        except BlaBlaException:
-            print('Ku-ku!!!')
+        except StopIteration:
+            # print('Ku-ku!!!')
+            break
         else:
             print('.........', message)
+    return 'Returned from subgen()'
 
 @coroutine
 def delegator(g):
-    while True:
-        try:
-            data = yield
-            g.send(data)
-        except BlaBlaException as e:
-            g.throw(e)
+    # while True:
+    #     try:
+    #         data = yield
+    #         g.send(data)
+    #     except BlaBlaException as e:
+    #         g.throw(e)
+    result = yield from g
+    print(result)
 
