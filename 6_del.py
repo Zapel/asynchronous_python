@@ -9,11 +9,22 @@ def coroutine(func):
 class BlaBlaException(Exception):
     pass
 
+@coroutine
 def subgen():
-    for i in 'oleg':
-        yield i
+    while True:
+        try:
+            message = yield
+        except:
+            pass
+        else:
+            print('.........', message)
 
+@coroutine
 def delegator(g):
-    for i in g:
-        yield i
+    while True:
+        try:
+            data = yield
+            g.send(data)
+        except:
+            pass
 
