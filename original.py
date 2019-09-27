@@ -13,7 +13,7 @@ while True:
     print('Connection from ', addr, 'client_socket', client_socket)
 
     while True:
-        print ('Before .recv()')
+        print('Before .recv()')
         request = client_socket.recv(4096)
         if not request:
             break
