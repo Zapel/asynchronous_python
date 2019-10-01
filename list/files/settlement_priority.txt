@@ -1,0 +1,4 @@
+[{'settlement_hour': datetime.time(14, 0), 'name': u'common'}, {'settlement_hour': datetime.time(8, 0), 'name': u'priority'}, {'settlement_hour': datetime.time(14, 30), 'name': u'urgent'}]
+
+
+
