@@ -22,8 +22,11 @@ def create_cvs(path, filename, *args):
 
     with open(FILENAME, "r", newline="") as file:
         reader = csv.DictReader(file)
+        headers = reader.fieldnames
         for row in reader:
-            print(row.values())
+            print(row)
+        for header in headers:
+            print(header)
 
 if __name__ == '__main__':
     path = '/home/oleg/git/asynchronous_python/cvs/files/'
