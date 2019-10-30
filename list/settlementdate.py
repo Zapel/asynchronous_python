@@ -243,5 +243,5 @@ if __name__ == '__main__':
     payoutdate = set_payoutdate(datetime.datetime.today(), 1                         , 'daily'                   , pay_way='bank_account',   spec_day=spec_days, spec_settlement=settlement_priority, settlement_priority='urgent')
     print("*HTML* payoutdate:  %s" % payoutdate)
 
-    payouttime = set_payoutdate(mr.trantimeend           , merchant.settlement_period, merchant.settlement_schema, pay_way=merchant.pay_way, spec_day=spec_days, spec_settlement=settlement_priority)
+    # payouttime = set_payoutdate(mr.trantimeend           , merchant.settlement_period, merchant.settlement_schema, pay_way=merchant.pay_way, spec_day=spec_days, spec_settlement=settlement_priority)
 
