@@ -28,12 +28,37 @@ def create_cvs(path, filename, *args):
     #     for header in headers:
     #         print(header)
 
+def read_csv_file(path, * args):
+    for arg in args:
+            dir_file = path + arg
+            print(dir_file)
+            with open(dir_file, "r") as file:
+                reader = csv.DictReader(file, delimiter=';')
+                headers = reader.fieldnames
+                print(headers)
+                dict_out = {}
+                i = 0
+                # for str in reader:
+                #     print(type(str)
+                # #     dict_out.update({i: str})
+                # #     i += 1
+                for i in dict_out.keys():
+                    print(i)
+                    print(dict_out)
+                return dict_out
+
+
+
+
+
+
 if __name__ == '__main__':
     path = '/home/oleg/git/asynchronous_python/cvs/files/'
-    filename = 'users_dic.csv'
-    dic1 = {"key1": "Tom", "key2": 28}
-    dic2 = {"key1": "Alice", "key2": 23}
-
-    create_cvs(path, filename, dic1, dic2)
+    filename = 'FDY test 20190927 .csv'
+    # dic1 = {"key1": "Tom", "key2": 28}
+    # dic2 = {"key1": "Alice", "key2": 23}
+    #
+    # create_cvs(path, filename, dic1, dic2)
+    read_csv_file(path, filename)
 
 

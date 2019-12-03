@@ -1,0 +1,25 @@
+ERROR:root:Error!
+Traceback (most recent call last):
+  File "/home/oleg/git/asynchronous_python/assert/test.py", line 10, in assert_list
+    assert set(list1).issubset(list2) == False
+AssertionError
+ERROR:ex:Error!
+Traceback (most recent call last):
+  File "/home/oleg/git/asynchronous_python/assert/test.py", line 11, in assert_list
+    assert set(list1).issubset(list2) == False
+AssertionError
+ERROR:ex:Error!
+Traceback (most recent call last):
+  File "/home/oleg/git/asynchronous_python/assert/test.py", line 11, in assert_list
+    assert set(list1).issubset(list2) == False
+AssertionError
+ERROR:ex:Error!
+Traceback (most recent call last):
+  File "/home/oleg/git/asynchronous_python/assert/test.py", line 11, in assert_list
+    assert set(list1).issubset(list2) == False
+AssertionError
+ERROR:ex:Error!
+Traceback (most recent call last):
+  File "/home/oleg/git/asynchronous_python/assert/test.py", line 13, in assert_list
+    assert set(list1).issubset(list2) == False
+AssertionError

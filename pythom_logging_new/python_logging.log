@@ -1,0 +1,11 @@
+2019-12-04 00:01:42,392 - pythom_logging_new - INFO - Настройка логгирования окончена!
+2019-12-04 00:01:42,392 - pythom_logging_new.first_class - WARNING - Число увеличивается!
+2019-12-04 00:01:42,392 - pythom_logging_new.first_class - INFO - Число еще увеличивается!!
+2019-12-04 00:01:42,392 - pythom_logging_new.first_class - WARNING - Число увеличивается!
+2019-12-04 00:01:42,393 - pythom_logging_new.first_class - INFO - Число еще увеличивается!!
+2019-12-04 00:01:42,393 - pythom_logging_new.first_class - WARNING - Очистка значения!
+2019-12-04 00:01:42,393 - pythom_logging_new.first_class - INFO - Значение еще не очищено!!
+2019-12-04 00:01:42,393 - pythom_logging_new.second_class - WARNING - Включение системы!
+2019-12-04 00:01:42,393 - pythom_logging_new.second_class - INFO - Система все еще включается!!
+2019-12-04 00:01:42,393 - pythom_logging_new.second_class - WARNING - Выключение системы!
+2019-12-04 00:01:42,393 - pythom_logging_new.second_class - INFO - Система все еще выключается!!
