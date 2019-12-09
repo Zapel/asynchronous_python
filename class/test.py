@@ -20,7 +20,7 @@ class Test:
 
 if __name__ == '__main__':
     test = Test(1, 2)
-    student = Student()
+    # student = Student()
 
     x = test.second(4, 3, 2)
     print(x)

@@ -20,3 +20,4 @@ data = {
 }
 
 print(data)
+print("Norway" in capitals)
