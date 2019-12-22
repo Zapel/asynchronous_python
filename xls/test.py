@@ -13,40 +13,44 @@ class Create_xls():
         filename = self.generate_name_alfa(pattern)
         workbook = xlwt.Workbook(encoding="utf-8")
         worksheet = workbook.add_sheet('Sheet0')
+        string = 'Сплата по прийнятим платежам {} - {} Без ПДВ.Згд.дог. 3171819615 вiд 2015/05/19 Сум {} Ком {} :: Реф=2158267'
+
+        date = '2019-12-21'
+        sum = 8324.41
+        com = 430.43
+
         col = 0
         row = 0
-        head_con = ({'Наш счет': '26504015021901'},
-                    {'Наш IBAN': 'UA463003460000026504015021901'},
-                    {'Операция': 'Дебет'},
-                    {'Счет IBAN': ''},
-                    {'МФО банка': ''},
-                    {'Наименование контрагента': ''},
-                    {'Код контрагента': ''},
-                    {'Назначение платежа': ''},
-                    {'Дата проводки': ''},
-                    {'Номер документа': ''},
-                    {'Сумма': ''},
-                    {'Валюта': 'UAH'},
-                    {'Время проводки': ''},
-                    {'Дата документа': ''},
-                    {'Дата архивирования': ''},
-                    {'Ид.код': '38905834'},
-                    {'Наименование': 'ТОВ "ФК "ЕЛАЄНС"'},
-                    {'МФО': '300346'})
+        headers = ('Наш счет', 'Наш IBAN', 'Операция', 'Счет', 'IBAN', 'МФО банка', 'Наименование контрагента', 'Код контрагента',
+                   'Назначение платежа', 'Дата проводки', 'Номер документа', 'Сумма', 'Валюта', 'Время проводки', 'Дата документа',
+                   'Дата архивирования', 'Ид.код', 'Наименование', 'МФО')
 
-        for header in head_con:
-            worksheet.write(row, col, list(header)[0])
-            print(col, list(header)[0])
+        for header in headers:
+            worksheet.write(row, col, header)
+            print(col, header)
             col += 1
 
         for row in range(1, len(data) + 1):
-            worksheet.write(row, 0, '26504015021901')
-            worksheet.write(row, 1, 'UA463003460000026504015021901')
-            worksheet.write(row, 2, 'Дебет')
-            worksheet.write(row, 11, 'UAH')
-            worksheet.write(row, 15, '38905834')
-            worksheet.write(row, 16, 'ТОВ "ФК "ЕЛАЄНС"')
-            worksheet.write(row, 17, '300346')
+            worksheet.write(row, 0, int(26504015021901))
+            worksheet.write(row, 1, str('UA463003460000026504015021901'))
+            worksheet.write(row, 2, str('Дебет'))
+            worksheet.write(row, 3, int(13000000100))
+            worksheet.write(row, 5, int(131313))
+            worksheet.write(row, 6, str('Zapel'))
+            worksheet.write(row, 7, int(3171819615))
+            worksheet.write(row, 8, string.format(date, date, sum, com))
+            # worksheet.write(row, 9, data[row - 1]['date'])
+            # worksheet.write(row, 10, data[row-1]['trans_id'])
+            worksheet.write(row, 10, int(2158267))
+            # worksheet.write(row, 11, data[row - 1]['amount'] - data[row - 1]['fee'])
+            worksheet.write(row, 11, float(sum - com))
+            worksheet.write(row, 12, str('UAH'))
+            # worksheet.write(row, 13, data[row - 1]['time'])
+            # worksheet.write(row, 14, data[row - 1]['date'])
+            # worksheet.write(row, 15, data[row - 1]['date'])
+            worksheet.write(row, 16, int(38905834))
+            worksheet.write(row, 17, str('ТОВ "ФК "ЕЛАЄНС"'))
+            worksheet.write(row, 18, int(300346))
 
         try:
             workbook.save(path + filename)
@@ -58,7 +62,7 @@ if __name__ == '__main__':
     pattern = 'Doc_'
     path = 'xls/'
 
-    headers = [[{'Наш счет': '26504015021901'},
+    data = [[{'Наш счет': '26504015021901'},
                {'Наш IBAN': 'UA463003460000026504015021901'},
                {'Операция': 'Дебет'},
                {'Счет IBAN': ''},
@@ -96,4 +100,4 @@ if __name__ == '__main__':
                {'МФО': '300346'}]]
 
     create.generate_name_alfa(pattern)
-    create.create_xls(path, pattern, headers)
+    create.create_xls(path, pattern, data)
