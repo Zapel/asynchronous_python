@@ -14,7 +14,7 @@ def create_cvs_list(path, filename, fieldnames, list):
 
     with open(FILENAME, "w", newline="") as file:
         writer = csv.DictWriter(file, delimiter=';', fieldnames=fieldnames)
-        writer.writeheader()
+        # writer.writeheader()
         writer.writerows(list)
 
 
