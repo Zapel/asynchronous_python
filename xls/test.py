@@ -13,7 +13,8 @@ class Create_xls():
         filename = self.generate_name_alfa(pattern)
         workbook = xlwt.Workbook(encoding="utf-8")
         worksheet = workbook.add_sheet('Sheet0')
-        string = 'Сплата по прийнятим платежам {} - {} Без ПДВ.Згд.дог. 3171819615 вiд 2015/05/19 Сум {} Ком {} :: Реф=2158267'
+        string = 'Сплата по прийнятим платежам {} - {} Без ПДВ.Згд.дог. 3171819615 вiд 2015/05/19 Сум {} Ком {} :: Реф=1'
+        string1 = 'Сплата по прийнятим платежам {} - {} Без ПДВ.Згд.дог. 3171819615 вiд 2015/05/19 Сум {} Ком {} :: Реф=2'
 
         date = '2019-12-21'
         sum = 8324.41
@@ -38,7 +39,11 @@ class Create_xls():
             worksheet.write(row, 5, int(131313))
             worksheet.write(row, 6, str('Zapel'))
             worksheet.write(row, 7, int(3171819615))
-            worksheet.write(row, 8, string.format(date, date, sum, com))
+
+            if row in [1, 3]:
+                worksheet.write(row, 8, string)
+            else:
+                worksheet.write(row, 8, string1)
             # worksheet.write(row, 9, data[row - 1]['date'])
             # worksheet.write(row, 10, data[row-1]['trans_id'])
             worksheet.write(row, 10, int(2158267))
