@@ -5,6 +5,7 @@ import imaplib
 import email
 
 adr = 'zapelfondytest@gmail.com'
+# adr = 'zapelfondy@gmail.com'
 password = 'zapel1706'
 folder = 'inbox'
 host_imap = 'imap.gmail.com'
@@ -20,26 +21,34 @@ def get_letter(adr, password, folder, host_imap):
 
     ids = data[0]
     id_list = ids.split()
-    latest_email_id = id_list[-1]
 
-    result, data = mail.fetch(latest_email_id, "(RFC822)")
-    raw_email = data[0][1]
-    raw_email_string = raw_email.decode('utf-8')
-    email_message = email.message_from_string(raw_email_string)
+    # print(len(id_list))
 
-    print(email_message['To'])
-    print(email.utils.parseaddr(email_message['From']))
-    print(email_message['Date'])
-    print(email_message['Subject'])
-    print(email_message['Message-Id'])
+    if len(id_list) == 0:
+        print(id_list)
+    else:
+        latest_email_id = id_list[-1]
+
+        result, data = mail.fetch(latest_email_id, "(RFC822)")
+        raw_email = data[0][1]
+        raw_email_string = raw_email.decode('utf-8')
+        email_message = email.message_from_string(raw_email_string)
+
+        print(email_message['To'])
+        print(email.utils.parseaddr(email_message['From']))
+        print(email_message['Date'])
+        print(email_message['Subject'])
+        print(email_message['Message-Id'])
 
     if email_message.is_multipart():
         for payload in email_message.get_payload():
-            body = payload.get_payload(decode=True).decode('utf-8')
-            print(body)
+            # body = payload.get_payload(decode=True).decode('utf-8')
+            filename = payload.get_filename()
+            # print(body)
+            print(filename)
     else:
-        body = email_message.get_payload(decode=True).decode('utf-8')
-        print(body)
+        body = email_message.get_payload(decode=True)
+        # print(body)
 
 
 
