@@ -3,7 +3,7 @@
 
 import imaplib
 import email
-
+from dateutil.parser import parse
 adr = 'zapelfondytest@gmail.com'
 # adr = 'zapelfondy@gmail.com'
 password = 'zapel1706'
@@ -36,9 +36,13 @@ def get_letter(adr, password, folder, host_imap):
 
         print(email_message['To'])
         print(email.utils.parseaddr(email_message['From']))
-        print(email_message['Date'])
+        # print(email_message['Date'])
+        dt = parse(email_message['Date'])
+        print(dt)
+        print(dt.strftime('%d/%m/%Y'))
+
         print(email_message['Subject'])
-        print(email_message['Message-Id'])
+        # print(email_message['Message-Id'])
 
     if email_message.is_multipart():
         for payload in email_message.get_payload():
